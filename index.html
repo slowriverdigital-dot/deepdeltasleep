@@ -1,480 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Deep Delta Sleep — Free 8-Hour Sleep Audio | Brown Noise & Binaural Beats</title>
-<meta name="description" content="Free daily 8-hour sleep audio sessions. Brown noise, binaural beats, and nature sounds for deep sleep. Subscribe free." />
-<meta name="robots" content="index, follow" />
-<meta property="og:title" content="Deep Delta Sleep — Free 8-Hour Sleep Audio" />
-<meta property="og:description" content="Free daily 8-hour sleep audio sessions. Brown noise, binaural beats, and nature sounds for deep sleep." />
-<meta property="og:type" content="website" />
-<meta name="theme-color" content="#0a0d14" />
-<meta name="tiktok-site-verification" content="hGokUvzi3QGLXPGji3Q93W101fPvndMh" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep Delta Sleep — 4K Sleep & Relaxation Content</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    :root {
+      --forest: #1a2e1a;
+      --forest-mid: #2d4a2d;
+      --moss: #4a7c4a;
+      --sage: #7aad7a;
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --gold: #c8a96e;
+      --text-dark: #1a2419;
+      --text-mid: #3d5c3d;
+      --text-light: #6b8f6b;
+    }
 
-<style>
-  :root {
-    --bg: #0a0d14;
-    --bg-elevated: #11151f;
-    --bg-card: #131826;
-    --border: #1f2638;
-    --border-strong: #2a3349;
-    --text: #e8ecf4;
-    --text-muted: #8b95ad;
-    --text-faint: #5a6479;
-    --accent: #6b8cff;
-    --accent-soft: rgba(107, 140, 255, 0.12);
-    --accent-hover: #8aa3ff;
-    --max: 1140px;
-  }
+    html { scroll-behavior: smooth; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--warm-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
 
-  html { scroll-behavior: smooth; }
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(26, 46, 26, 0.95);
+      backdrop-filter: blur(8px);
+    }
 
-  body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-  }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
 
-  /* Subtle ambient gradient — no animation */
-  body::before {
-    content: "";
-    position: fixed;
-    top: -20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 900px;
-    height: 900px;
-    background: radial-gradient(circle, rgba(107, 140, 255, 0.06) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-  }
+    .nav-logo svg { width: 36px; height: 36px; }
 
-  .container {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    z-index: 1;
-  }
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+    }
 
-  /* Typography */
-  h1, h2, h3 {
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    color: #f4f6fb;
-  }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
 
-  h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); }
-  h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
-  h3 { font-size: 1.125rem; font-weight: 600; }
+    .nav-links a {
+      color: rgba(245,240,232,0.75);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
 
-  p { color: var(--text-muted); }
+    .nav-links a:hover { color: var(--cream); }
 
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { color: var(--accent-hover); }
+    .nav-links .nav-cta {
+      color: var(--gold);
+      font-weight: 500;
+    }
 
-  /* Sections */
-  section { padding: 96px 0; position: relative; z-index: 1; }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 6rem;
+      background: linear-gradient(160deg, var(--forest) 0%, var(--forest-mid) 50%, #1e3a20 100%);
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* HERO */
-  .hero {
-    padding: 140px 0 120px;
-    text-align: center;
-  }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(74,124,74,0.15) 0%, transparent 70%);
+    }
 
-  .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 48px;
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
+    .hero-content { position: relative; max-width: 720px; }
 
-  .logo-mark {
-    width: 28px;
-    height: 28px;
-    color: var(--accent);
-  }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
 
-  .hero h1 {
-    margin-bottom: 24px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
 
-  .hero .tagline {
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
-    color: var(--text);
-    font-weight: 400;
-    margin-bottom: 16px;
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--sage);
+    }
 
-  .hero .subtext {
-    font-size: 1rem;
-    max-width: 560px;
-    margin: 0 auto 48px;
-    color: var(--text-muted);
-  }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(245,240,232,0.7);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
 
-  /* Form */
-  .email-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    max-width: 520px;
-    margin: 0 auto 16px;
-  }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-  .email-form input[type="email"] {
-    flex: 1 1 240px;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 14px 18px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      background: var(--sage);
+      color: var(--forest);
+      font-weight: 500;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
 
-  .email-form input[type="email"]:focus {
-    outline: none;
-    border-color: var(--accent);
-    background: var(--bg-card);
-  }
+    .btn-primary:hover { background: #8ec48e; transform: translateY(-1px); }
 
-  .email-form input[type="email"]::placeholder { color: var(--text-faint); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border: 1px solid rgba(245,240,232,0.25);
+      color: var(--cream);
+      font-weight: 400;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
 
-  .btn {
-    background: var(--accent);
-    color: #0a0d14;
-    border: none;
-    padding: 14px 24px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    transition: background 0.2s ease, transform 0.15s ease;
-    white-space: nowrap;
-  }
+    .btn-secondary:hover {
+      border-color: rgba(245,240,232,0.5);
+      background: rgba(245,240,232,0.05);
+    }
 
-  .btn:hover {
-    background: var(--accent-hover);
-    color: #0a0d14;
-  }
+    /* SECTION BASE */
+    section { padding: 6rem 2rem; }
 
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border-strong);
-  }
+    .container { max-width: 1100px; margin: 0 auto; }
 
-  .btn-outline:hover {
-    background: var(--accent-soft);
-    border-color: var(--accent);
-    color: var(--text);
-  }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin-bottom: 1rem;
+    }
 
-  .fine-print {
-    font-size: 0.8125rem;
-    color: var(--text-faint);
-    max-width: 520px;
-    margin: 0 auto;
-  }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 1rem;
+    }
 
-  /* Section heads */
-  .section-head {
-    text-align: center;
-    margin-bottom: 56px;
-  }
+    .section-body {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.7;
+    }
 
-  .section-head h2 { margin-bottom: 16px; }
+    /* ABOUT */
+    .about { background: var(--warm-white); }
 
-  .section-head p {
-    max-width: 640px;
-    margin: 0 auto;
-    font-size: 1rem;
-  }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
 
-  /* Cards grid */
-  .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
 
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
+    .stat-card {
+      padding: 1.5rem;
+      background: var(--cream);
+      border-radius: 6px;
+      border-left: 3px solid var(--sage);
+    }
 
-  .card:hover {
-    border-color: var(--border-strong);
-    background: #161b2b;
-  }
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--forest);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
 
-  .card-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      letter-spacing: 0.02em;
+    }
 
-  .card h3 {
-    margin-bottom: 12px;
-    color: #f4f6fb;
-  }
+    .about-visual {
+      background: linear-gradient(135deg, var(--forest-mid), var(--forest));
+      border-radius: 8px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .card p {
-    font-size: 0.9375rem;
-    color: var(--text-muted);
-  }
+    .about-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(122,173,122,0.2), transparent 60%);
+    }
 
-  .center { text-align: center; margin-top: 48px; }
+    .about-visual-icon {
+      position: relative;
+      text-align: center;
+    }
 
-  /* Affiliate cards */
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 220px;
-  }
+    .about-visual-icon svg {
+      width: 80px;
+      height: 80px;
+      opacity: 0.6;
+    }
 
-  .product-card .card-body { margin-bottom: 20px; }
+    .about-visual-text {
+      position: relative;
+      margin-top: 1rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: rgba(245,240,232,0.7);
+      font-style: italic;
+    }
 
-  .product-card h3 { margin-bottom: 8px; font-size: 1.0625rem; }
+    /* CONTENT */
+    .content-section { background: var(--cream); }
 
-  .product-card p { font-size: 0.9375rem; }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
 
-  .product-link {
-    color: var(--accent);
-    font-size: 0.875rem;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    border-top: 1px solid var(--border);
-    padding-top: 16px;
-    margin-top: auto;
-  }
+    .pillar-card {
+      background: var(--warm-white);
+      border-radius: 6px;
+      padding: 1.75rem;
+      border-top: 3px solid var(--moss);
+    }
 
-  .product-link:hover { color: var(--accent-hover); }
+    .pillar-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
 
-  /* About */
-  .about {
-    text-align: center;
-  }
+    .pillar-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
 
-  .about p {
-    max-width: 680px;
-    margin: 0 auto 32px;
-    font-size: 1.0625rem;
-    color: var(--text);
-    line-height: 1.7;
-  }
+    .pillar-desc {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
 
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 48px 0;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
+    /* HOW IT WORKS */
+    .how-section { background: var(--warm-white); }
 
-  footer p {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
 
-  footer .small {
-    font-size: 0.75rem;
-    color: var(--text-faint);
-    max-width: 600px;
-    margin: 0 auto;
-  }
+    .step {
+      text-align: center;
+    }
 
-  .footer-legal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-    margin-top: 12px;
-  }
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--forest);
+      color: var(--cream);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
 
-  .footer-legal a {
-    color: var(--accent);
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
+    .step-title {
+      font-weight: 500;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
 
-  .footer-legal a:hover { color: var(--accent-hover); }
+    .step-desc {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
 
-  /* Affiliate disclosure */
-  .disclosure {
-    font-size: 0.8125rem;
-    color: var(--text-faint);
-    max-width: 720px;
-    margin: 16px auto 0;
-    line-height: 1.6;
-  }
+    /* CTA BAND */
+    .cta-band {
+      background: linear-gradient(135deg, var(--forest), var(--forest-mid));
+      text-align: center;
+      padding: 5rem 2rem;
+    }
 
-  /* Responsive */
-  @media (max-width: 860px) {
-    .grid-3 { grid-template-columns: repeat(2, 1fr); }
-    section { padding: 72px 0; }
-    .hero { padding: 100px 0 80px; }
-  }
+    .cta-band h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
 
-  @media (max-width: 540px) {
-    .grid-3 { grid-template-columns: 1fr; }
-    .email-form { flex-direction: column; }
-    .email-form input[type="email"] { flex-basis: auto; }
-    .btn { width: 100%; }
-    section { padding: 64px 0; }
-    .hero { padding: 80px 0 64px; }
-    .card { padding: 24px; }
-  }
-</style>
+    .cta-band p {
+      color: rgba(245,240,232,0.7);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--forest);
+      color: rgba(245,240,232,0.6);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      color: var(--cream);
+      font-size: 1rem;
+    }
+
+    .footer-brand span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(245,240,232,0.5);
+      font-weight: 300;
+      margin-top: 0.25rem;
+    }
+
+    /* CRITICAL: Privacy Policy and Terms of Service must be visible in footer without opening any menu */
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(245,240,232,0.6);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--cream); }
+
+    .footer-legal {
+      width: 100%;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(245,240,232,0.1);
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: rgba(245,240,232,0.35);
+    }
+
+    /* PRIVACY / TERMS PAGES */
+    .legal-page {
+      padding: 8rem 2rem 5rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .legal-page h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .legal-date {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+    }
+
+    .legal-page h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--forest);
+      margin: 2rem 0 0.75rem;
+    }
+
+    .legal-page p, .legal-page li {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-page ul { padding-left: 1.5rem; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pillars { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 36 36" fill="none" aria-label="Deep Delta Sleep logo">
+      <circle cx="18" cy="18" r="17" stroke="#7aad7a" stroke-width="1.5"/>
+      <!-- Delta wave shape -->
+      <path d="M6 22 L12 12 L18 20 L24 10 L30 22" stroke="#7aad7a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="18" cy="20" r="1.5" fill="#c8a96e"/>
+    </svg>
+    <span class="nav-brand">Deep Delta Sleep</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="privacy.html">Privacy Policy</a></li>
+    <li><a href="terms.html">Terms of Service</a></li>
+    <li><a href="https://www.youtube.com/@deep_delta_sleep" target="_blank" class="nav-cta">Watch on YouTube ↗</a></li>
+  </ul>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <div class="logo" aria-label="Deep Delta Sleep">
-      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M4 16 Q 10 6, 16 16 T 28 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-        <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
-      </svg>
-      <span>Deep Delta Sleep</span>
-    </div>
-
-    <h1>Science-backed sleep audio. Free, forever.</h1>
-    <p class="tagline">Drift into deeper sleep with engineered delta-wave sessions.</p>
-    <p class="subtext">8-hour sessions engineered for delta wave sleep — brown noise, binaural beats, and nature sounds.</p>
-
-    <form class="email-form" action="https://formspree.io/f/placeholder" method="POST">
-      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" />
-      <button type="submit" class="btn">Get Free 3-Night Sleep Pack</button>
-    </form>
-    <p class="fine-print">No spam. Unsubscribe anytime. AI-generated audio — for relaxation only.</p>
-  </div>
-</section>
-
-<!-- LEAD MAGNET -->
-<section id="lead-magnet">
-  <div class="container">
-    <div class="section-head">
-      <h2>Free 3-Night Deep Delta Sleep Starter Pack</h2>
-      <p>Three nights of original audio designed to guide you into deep, restorative sleep.</p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-label">Night 1</div>
-        <h3>3 Hz Delta Binaural Beats + Brown Noise</h3>
-        <p>The scientifically studied delta frequency for deep sleep onset.</p>
-      </div>
-      <div class="card">
-        <div class="card-label">Night 2</div>
-        <h3>432 Hz Ambient + Theta Waves</h3>
-        <p>Gentle transition from wakefulness to deep sleep.</p>
-      </div>
-      <div class="card">
-        <div class="card-label">Night 3</div>
-        <h3>Pure Brown Noise (1/f² Spectrum)</h3>
-        <p>Masks environmental noise. 38% faster sleep onset in studies.</p>
-      </div>
-    </div>
-
-    <div class="center">
-      <a href="https://www.youtube.com/@deep_delta_sleep" class="btn" target="_blank" rel="noopener noreferrer">Watch Free on YouTube →</a>
-    </div>
-  </div>
-</section>
-
-<!-- AFFILIATE -->
-<section id="recommendations" style="background: #0c1019;">
-  <div class="container">
-    <div class="section-head">
-      <h2>Sleep Tools We Recommend</h2>
-      <p>Affiliate links — we earn a small commission at no cost to you.</p>
-      <p class="disclosure">Amazon affiliate disclosure: slowriverdigital@gmail.com is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.</p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card product-card">
-        <div class="card-body">
-          <h3>Loop Earplugs</h3>
-          <p>Block noise without discomfort.</p>
-        </div>
-        <a href="https://amzn.to/4cQmXS1" class="product-link" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
-      </div>
-      <div class="card product-card">
-        <div class="card-body">
-          <h3>Anker Soundcore Sleep A20</h3>
-          <p>Zero-pressure sleep earbuds.</p>
-        </div>
-        <a href="https://amzn.to/49d1G2y" class="product-link" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
-      </div>
-      <div class="card product-card">
-        <div class="card-body">
-          <h3>Manta Sleep Mask</h3>
-          <p>Total blackout, zero pressure.</p>
-        </div>
-        <a href="https://amzn.to/4d7y3RC" class="product-link" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
-      </div>
-      <div class="card product-card">
-        <div class="card-body">
-          <h3>Helix Sleep Mattress</h3>
-          <p>Temperature-regulating sleep surface.</p>
-        </div>
-        <a href="https://amzn.to/4d5LaCJ" class="product-link" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
-      </div>
-      <div class="card product-card">
-        <div class="card-body">
-          <h3>Casper Sleep Pillow</h3>
-          <p>Ergonomic support for deeper sleep.</p>
-        </div>
-        <a href="https://amzn.to/4usVRGr" class="product-link" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
-      </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">4K Sleep &amp; Relaxation · Nature Soundscapes</span>
+    <h1>Fall asleep to the<br/><em>sound of nature</em></h1>
+    <p class="hero-sub">Deep Delta Sleep creates immersive 4K nature soundscape videos — forest creeks, rainfall, waterfalls — designed to guide your mind into deep, restful sleep.</p>
+    <div class="hero-ctas">
+      <a href="https://www.youtube.com/@deep_delta_sleep" target="_blank" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zM6.5 5.5l5 2.5-5 2.5V5.5z"/></svg>
+        Watch on YouTube
+      </a>
+      <a href="#about" class="btn-secondary">Learn more</a>
     </div>
   </div>
 </section>
@@ -482,36 +526,143 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="container">
-    <div class="section-head">
-      <h2>About Deep Delta Sleep</h2>
-    </div>
-    <p>Deep Delta Sleep produces free 8-hour sleep audio sessions using scientifically validated frequency ranges. All audio is original AI-generated production by Slow River Digital. Every session includes an AI disclosure. Subscribe for new sessions daily.</p>
-    <div class="center" style="margin-top: 0;">
-      <a href="https://www.youtube.com/@deep_delta_sleep" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Subscribe on YouTube @deep_delta_sleep</a>
+    <div class="about-grid">
+      <div>
+        <p class="section-label">About Deep Delta Sleep</p>
+        <h2 class="section-title">Sleep content engineered for your brain</h2>
+        <p class="section-body">Deep Delta Sleep is a sleep and relaxation content channel publishing 4K nature soundscape videos to YouTube. Our content is designed to help viewers fall asleep faster and stay asleep longer using proven audio-visual relaxation techniques — including binaural beats, brown noise, and ultra-slow cinematic nature imagery.</p>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">4K</div>
+            <div class="stat-label">Ultra-HD resolution</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">8hr</div>
+            <div class="stat-label">Extended sleep sessions</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Content pillars</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">Videos published</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-visual-icon">
+          <svg viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <path d="M10 50 Q20 20 40 35 Q60 50 70 25" stroke="#7aad7a" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M10 60 Q25 35 40 48 Q55 61 70 40" stroke="rgba(122,173,122,0.4)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+          <div class="about-visual-text">delta · theta · alpha</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- LEGAL STRIP — visible to TikTok reviewers without scrolling to footer -->
-<section style="background:#0d1120;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 0;position:relative;z-index:1;">
-  <div class="container" style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px 28px;">
-    <span style="font-size:0.8125rem;color:var(--text-faint);">Deep Delta Sleep &mdash; Slow River Digital</span>
-    <a href="terms.html" style="font-size:0.875rem;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px;">Terms of Service</a>
-    <a href="privacy.html" style="font-size:0.875rem;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px;">Privacy Policy</a>
-    <a href="mailto:slowriverdigital@gmail.com" style="font-size:0.875rem;color:var(--text-muted);">slowriverdigital@gmail.com</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
+<!-- CONTENT PILLARS -->
+<section class="content-section" id="content">
   <div class="container">
-    <p>© 2026 Slow River Digital | Deep Delta Sleep | <a href="mailto:slowriverdigital@gmail.com" style="color:var(--text-muted)">slowriverdigital@gmail.com</a></p>
-    <div class="footer-legal">
-      <a href="terms.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="mailto:slowriverdigital@gmail.com">Contact Us</a>
+    <p class="section-label">What We Create</p>
+    <h2 class="section-title">Five pillars of sleep content</h2>
+    <p class="section-body">Each content pillar targets a distinct sleep environment and audience, drawn from competitive analysis of the highest-performing sleep channels on YouTube.</p>
+    <div class="pillars">
+      <div class="pillar-card">
+        <div class="pillar-icon">🌿</div>
+        <div class="pillar-title">Forest Creek + Birdsong</div>
+        <p class="pillar-desc">Ultra-slow 4K forest creek scenes with natural birdsong — our highest-performing content format.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">💧</div>
+        <div class="pillar-title">Waterfall + Nature</div>
+        <p class="pillar-desc">Cascading waterfalls with immersive natural soundscapes for deep white noise sleep.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🌧️</div>
+        <div class="pillar-title">Rain on Forest</div>
+        <p class="pillar-desc">Gentle forest rainfall without thunder — designed for anxiety relief and sleep onset.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🔥</div>
+        <div class="pillar-title">Cozy Cabin / Fireplace</div>
+        <p class="pillar-desc">Warm cabin interiors with crackling fire and rain on windows for deep comfort sleep.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🌙</div>
+        <div class="pillar-title">Forest at Night</div>
+        <p class="pillar-desc">Moonlit forest scenes with nocturnal soundscapes — crickets, frogs, owls — for night owls.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🎵</div>
+        <div class="pillar-title">Binaural Beats</div>
+        <p class="pillar-desc">Delta-frequency binaural audio layered with nature imagery to guide the brain into deep sleep states.</p>
+      </div>
     </div>
-    <p class="small" style="margin-top:16px">All audio is AI-generated by Slow River Digital for relaxation purposes. Not a substitute for medical advice.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="container">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Automated content pipeline</h2>
+    <p class="section-body">Deep Delta Sleep uses an automated content production and distribution system. Content is created, quality-reviewed, and published to YouTube and TikTok through a technical pipeline built on Python and third-party developer APIs.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">AI Visual Generation</div>
+        <p class="step-desc">Cinematic 4K nature backgrounds are generated using AI video models and composited with audio.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Audio Production</div>
+        <p class="step-desc">Delta binaural beats, brown noise, and nature audio are layered and mixed for optimal sleep induction.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">SEO Optimization</div>
+        <p class="step-desc">Each video is titled, described, and tagged using sleep keyword research for maximum discoverability.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Multi-Platform Publishing</div>
+        <p class="step-desc">Content is published to YouTube and TikTok via official developer APIs, including TikTok's Content Posting API.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to sleep better?</h2>
+    <p>Subscribe to Deep Delta Sleep on YouTube for new relaxation content every week.</p>
+    <a href="https://www.youtube.com/@deep_delta_sleep" target="_blank" class="btn-primary">Visit our YouTube Channel</a>
+  </div>
+</section>
+
+<!-- FOOTER — Privacy Policy and Terms of Service visible here without any menu -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      Deep Delta Sleep
+      <span>by Slow River Digital · Westport, CT</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#content">Content</a>
+      <a href="https://www.youtube.com/@deep_delta_sleep" target="_blank">YouTube</a>
+      <a href="privacy.html"><strong style="color:rgba(245,240,232,0.85)">Privacy Policy</strong></a>
+      <a href="terms.html"><strong style="color:rgba(245,240,232,0.85)">Terms of Service</strong></a>
+      <a href="mailto:slowriverdigital@gmail.com">Contact</a>
+    </div>
+    <div class="footer-legal">
+      &copy; 2026 Slow River Digital LLC. All rights reserved. Deep Delta Sleep is a content brand operated by Slow River Digital.
+    </div>
   </div>
 </footer>
 

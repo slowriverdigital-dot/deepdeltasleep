@@ -4,197 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Service — Deep Delta Sleep</title>
-  <meta name="description" content="Terms of Service for Deep Delta Sleep, operated by Slow River Digital." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: #0a0d14;
-      color: #d4d8e2;
-      line-height: 1.7;
+    :root {
+      --forest: #1a2e1a; --forest-mid: #2d4a2d; --moss: #4a7c4a;
+      --sage: #7aad7a; --cream: #f5f0e8; --warm-white: #faf8f4;
+      --gold: #c8a96e; --text-dark: #1a2419; --text-mid: #3d5c3d; --text-light: #6b8f6b;
     }
-
-    header {
-      background: linear-gradient(180deg, #0d1220 0%, #131929 100%);
-      border-bottom: 1px solid #1e2840;
-      padding: 48px 24px 40px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.4rem;
-      font-weight: normal;
-      letter-spacing: 0.04em;
-      color: #e8ecf4;
-      margin-bottom: 12px;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #8a9ab8;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
+    body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text-dark); line-height: 1.6; }
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      padding: 16px 24px;
-      background: #0d1220;
-      border-bottom: 1px solid #1a2035;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(26,46,26,0.95); backdrop-filter: blur(8px);
     }
-
-    nav a {
-      color: #7a8fb0;
-      text-decoration: none;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    nav a:hover { color: #c4cfe8; }
-
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 64px 24px 80px;
-    }
-
-    .last-updated {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 0.82rem;
-      color: #4a5a78;
-      margin-bottom: 48px;
-    }
-
-    h2 {
-      font-size: 1.15rem;
-      font-weight: normal;
-      color: #b0bfd8;
-      margin: 40px 0 14px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    h2:first-of-type { margin-top: 0; }
-
-    p {
-      font-size: 0.97rem;
-      color: #7a8aa8;
-      margin-bottom: 16px;
-    }
-
-    ul {
-      margin: 0 0 16px 24px;
-      color: #7a8aa8;
-      font-size: 0.97rem;
-    }
-
-    ul li { margin-bottom: 8px; }
-
-    a { color: #6888b8; text-decoration: none; }
-    a:hover { color: #90aad8; }
-
-    .contact-block {
-      background: #0d1422;
-      border: 1px solid #1a2535;
-      border-radius: 6px;
-      padding: 28px;
-      margin-top: 48px;
-    }
-
-    .contact-block h2 { margin-top: 0; }
-
-    footer {
-      background: #080b12;
-      border-top: 1px solid #141c2e;
-      text-align: center;
-      padding: 32px 24px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 0.82rem;
-      color: #4a5570;
-    }
-
-    footer a { color: #5a6890; text-decoration: none; }
-    footer a:hover { color: #8090b8; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo svg { width: 36px; height: 36px; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--cream); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: rgba(245,240,232,0.75); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cream); }
+    main { padding: 8rem 2rem 5rem; max-width: 760px; margin: 0 auto; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.25rem; color: var(--forest); margin-bottom: 0.5rem; }
+    .date { font-size: 0.8rem; color: var(--text-light); margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(26,46,26,0.1); }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--forest); margin: 2.5rem 0 0.75rem; }
+    p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1rem; }
+    ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { font-size: 0.95rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 0.4rem; }
+    a { color: var(--moss); }
+    footer { background: var(--forest); padding: 2rem; text-align: center; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a { color: rgba(245,240,232,0.7); text-decoration: none; font-size: 0.875rem; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy { color: rgba(245,240,232,0.35); font-size: 0.75rem; margin-top: 1rem; }
   </style>
 </head>
 <body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 36 36" fill="none" aria-label="Deep Delta Sleep logo">
+      <circle cx="18" cy="18" r="17" stroke="#7aad7a" stroke-width="1.5"/>
+      <path d="M6 22 L12 12 L18 20 L24 10 L30 22" stroke="#7aad7a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="18" cy="20" r="1.5" fill="#c8a96e"/>
+    </svg>
+    <span class="nav-brand">Deep Delta Sleep</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="privacy.html">Privacy Policy</a></li>
+    <li><a href="terms.html"><strong style="color:#f5f0e8">Terms of Service</strong></a></li>
+  </ul>
+</nav>
 
-  <header>
-    <h1>Deep Delta Sleep</h1>
-    <p>Terms of Service</p>
-  </header>
+<main>
+  <h1>Terms of Service</h1>
+  <p class="date">Effective Date: July 1, 2026 · Last Updated: July 1, 2026</p>
 
-  <nav>
+  <p>These Terms of Service ("Terms") govern your use of the Deep Delta Sleep website and any associated services, including our TikTok API integration, operated by Slow River Digital LLC ("we," "us," or "our"). By accessing or using our services, you agree to be bound by these Terms.</p>
+
+  <h2>1. About Our Service</h2>
+  <p>Deep Delta Sleep is a sleep and relaxation content brand that publishes 4K nature soundscape videos to YouTube and TikTok. Our TikTok integration uses the TikTok Content Posting API (Direct Post) and Login Kit to authenticate creator accounts and publish sleep content directly to authorized TikTok profiles.</p>
+
+  <h2>2. TikTok API Integration</h2>
+  <p>Our application integrates with TikTok's developer platform using the following products and scopes:</p>
+  <ul>
+    <li><strong>Login Kit</strong> — Used to authenticate TikTok user accounts and obtain authorization to post on behalf of authorized users.</li>
+    <li><strong>Content Posting API (video.publish)</strong> — Used to directly publish sleep and relaxation video content to authorized TikTok creator profiles.</li>
+    <li><strong>Content Posting API (video.upload)</strong> — Used to upload video files as part of the posting workflow.</li>
+    <li><strong>user.info.basic</strong> — Used to retrieve basic account information (display name, avatar) to verify account identity.</li>
+    <li><strong>user.info.profile</strong> — Used to retrieve profile details necessary for creator eligibility verification.</li>
+    <li><strong>user.info.stats</strong> — Used to retrieve account statistics to verify creator account status.</li>
+  </ul>
+  <p>By authorizing our app through TikTok's OAuth flow, you grant us permission to perform these actions on your behalf. You may revoke this authorization at any time through TikTok's connected apps settings.</p>
+
+  <h2>3. Acceptable Use</h2>
+  <p>You agree not to:</p>
+  <ul>
+    <li>Use our service for any unlawful purpose or in violation of TikTok's Terms of Service</li>
+    <li>Attempt to gain unauthorized access to our systems or TikTok's API</li>
+    <li>Reverse engineer or misuse any portion of our integration</li>
+    <li>Use the service to post content that violates TikTok's Community Guidelines</li>
+  </ul>
+
+  <h2>4. Content</h2>
+  <p>All sleep and relaxation video content published through our service is owned by Slow River Digital LLC. Content published to TikTok through our Direct Post integration is subject to TikTok's content policies and Community Guidelines. We retain all rights to our original content.</p>
+
+  <h2>5. Disclaimer of Warranties</h2>
+  <p>Our service is provided "as is" without warranties of any kind, express or implied. We do not guarantee uninterrupted access to our TikTok integration, as API availability is subject to TikTok's platform policies and developer program terms.</p>
+
+  <h2>6. Limitation of Liability</h2>
+  <p>To the fullest extent permitted by law, Slow River Digital LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of our services.</p>
+
+  <h2>7. Third-Party Services</h2>
+  <p>Our service integrates with TikTok's developer platform. Your use of TikTok is governed by TikTok's own Terms of Service and Privacy Policy. We are not responsible for TikTok's platform decisions, API changes, or content moderation actions.</p>
+
+  <h2>8. Changes to Terms</h2>
+  <p>We may update these Terms periodically. Continued use of our services after changes constitutes acceptance of the updated Terms. We will post changes on this page with an updated effective date.</p>
+
+  <h2>9. Governing Law</h2>
+  <p>These Terms are governed by the laws of the State of Connecticut, United States, without regard to conflict of law principles.</p>
+
+  <h2>10. Contact</h2>
+  <p>For questions about these Terms, contact us at:</p>
+  <p><strong>Slow River Digital LLC</strong><br/>
+  Westport, Connecticut, USA<br/>
+  Email: <a href="mailto:slowriverdigital@gmail.com">slowriverdigital@gmail.com</a></p>
+</main>
+
+<footer>
+  <div class="footer-links">
     <a href="index.html">Home</a>
-    <a href="https://www.youtube.com/@deep_delta_sleep" target="_blank" rel="noopener">YouTube</a>
     <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-  </nav>
-
-  <main>
-
-    <p class="last-updated">Last updated: June 15, 2026</p>
-
-    <h2>1. Acceptance of Terms</h2>
-    <p>By accessing this website (deepdeltasleep.github.io) or using any services offered by Deep Delta Sleep, you agree to be bound by these Terms of Service. Deep Delta Sleep is operated by Slow River Digital, located in Westport, Connecticut, USA. If you do not agree to these terms, please discontinue use of this website.</p>
-
-    <h2>2. Description of Service</h2>
-    <p>Deep Delta Sleep produces and publishes free sleep audio content — including delta binaural beats, brown noise, 432 Hz ambient sessions, and nature sound recordings — on YouTube and related platforms. This website serves as the official homepage of Deep Delta Sleep and includes links to affiliate products related to sleep health.</p>
-    <p>All audio content is original AI-assisted production by Slow River Digital. Every session includes an AI disclosure in its description.</p>
-
-    <h2>3. Intellectual Property</h2>
-    <p>All audio, video, images, and written content published by Deep Delta Sleep are owned by Slow River Digital unless otherwise noted. You may not reproduce, redistribute, sell, or create derivative works from our content without prior written permission.</p>
-    <p>Nature sound recordings used in our content are sourced from CC0 (public domain) field recordings. Attribution is provided in video descriptions where applicable.</p>
-
-    <h2>4. Affiliate Disclosure</h2>
-    <p>Deep Delta Sleep participates in affiliate marketing programs. Some links on this website — including links to Amazon, Helix Sleep, Manta Sleep, and Loop Earplugs — are affiliate links. We may earn a commission at no additional cost to you if you click through and make a purchase.</p>
-    <p>We only recommend products that we believe are genuinely useful for sleep health. Affiliate relationships do not influence our editorial content.</p>
-
-    <h2>5. API and Automation Use</h2>
-    <p>Deep Delta Sleep uses the following third-party APIs to automate content publishing:</p>
-    <ul>
-      <li><strong>YouTube Data API &amp; YouTube Analytics API</strong> — for video uploads, metadata management, and analytics on our own channel only</li>
-      <li><strong>Pinterest API</strong> — for publishing Pins to our own Pinterest account only</li>
-      <li><strong>TikTok for Developers API</strong> — for publishing short-form content to our own TikTok account only</li>
-    </ul>
-    <p>These integrations are used solely for automated content publishing on behalf of Deep Delta Sleep. We do not collect, store, or sell data from other users of these platforms.</p>
-    <p>Our use of the YouTube API is subject to the <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" target="_blank" rel="noopener">YouTube API Services Terms of Service</a>. Our use of the TikTok API is subject to the <a href="https://developers.tiktok.com/doc/tiktok-api-terms-of-service" target="_blank" rel="noopener">TikTok API Terms of Service</a>.</p>
-
-    <h2>6. Disclaimer of Warranties</h2>
-    <p>Deep Delta Sleep content is provided for relaxation and entertainment purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. If you have a sleep disorder or health condition, consult a qualified healthcare provider.</p>
-    <p>This website and all content are provided "as is" without warranties of any kind, either express or implied.</p>
-
-    <h2>7. Limitation of Liability</h2>
-    <p>Slow River Digital and Deep Delta Sleep shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of this website or our content, including but not limited to reliance on information provided herein.</p>
-
-    <h2>8. Third-Party Links</h2>
-    <p>This website contains links to third-party websites (YouTube, Amazon, affiliate partners, etc.). Deep Delta Sleep is not responsible for the content, privacy practices, or terms of service of those external sites. We encourage you to review their terms before engaging with them.</p>
-
-    <h2>9. Changes to These Terms</h2>
-    <p>We may update these Terms of Service at any time. Changes will be reflected by updating the "Last updated" date at the top of this page. Continued use of the website following any changes constitutes acceptance of the revised terms.</p>
-
-    <h2>10. Governing Law</h2>
-    <p>These Terms of Service are governed by the laws of the State of Connecticut, USA, without regard to conflict of law provisions.</p>
-
-    <div class="contact-block">
-      <h2>11. Contact</h2>
-      <p>For questions about these Terms of Service, contact us:</p>
-      <p><strong>Email:</strong> <a href="mailto:slowriverdigital@gmail.com">slowriverdigital@gmail.com</a><br />
-      <strong>Website:</strong> <a href="https://deepdeltasleep.github.io">deepdeltasleep.github.io</a><br />
-      <strong>YouTube:</strong> <a href="https://www.youtube.com/@deep_delta_sleep" target="_blank" rel="noopener">@deep_delta_sleep</a></p>
-    </div>
-
-  </main>
-
-  <footer>
-    <p>© 2026 Slow River Digital &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="mailto:slowriverdigital@gmail.com">slowriverdigital@gmail.com</a></p>
-  </footer>
-
+    <a href="terms.html"><strong style="color:#f5f0e8">Terms of Service</strong></a>
+    <a href="mailto:slowriverdigital@gmail.com">Contact</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Slow River Digital LLC. All rights reserved.</div>
+</footer>
 </body>
 </html>
