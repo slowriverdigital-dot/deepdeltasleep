@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Delta Sleep</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2036%2036'%3E%3Crect%20width='36'%20height='36'%20rx='7'%20fill='%231a2e1a'/%3E%3Cpath%20d='M5%2022%20L11%2012%20L18%2020%20L25%2010%20L31%2022'%20stroke='%237aad7a'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20fill='none'/%3E%3Ccircle%20cx='18'%20cy='20'%20r='2'%20fill='%23c8a96e'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png" />
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
@@ -23,7 +27,7 @@
       background: rgba(26,46,26,0.95); backdrop-filter: blur(8px);
     }
     .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-    .nav-logo svg { width: 36px; height: 36px; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 8px; display: block; }
     .nav-brand { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--cream); }
     .nav-links { display: flex; gap: 1.5rem; list-style: none; }
     .nav-links a { color: rgba(245,240,232,0.75); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
@@ -46,11 +50,7 @@
 <body>
 <nav>
   <a href="../index.html" class="nav-logo">
-    <svg viewBox="0 0 36 36" fill="none" aria-label="Deep Delta Sleep logo">
-      <circle cx="18" cy="18" r="17" stroke="#7aad7a" stroke-width="1.5"/>
-      <path d="M6 22 L12 12 L18 20 L24 10 L30 22" stroke="#7aad7a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <circle cx="18" cy="20" r="1.5" fill="#c8a96e"/>
-    </svg>
+    <img src="assets/brand-icon-512.png" alt="Deep Delta Sleep logo" width="36" height="36" />
     <span class="nav-brand">Deep Delta Sleep</span>
   </a>
   <ul class="nav-links">
