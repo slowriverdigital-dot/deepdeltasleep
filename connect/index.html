@@ -75,7 +75,6 @@
     <p>Deep Delta Sleep publishes daily 4K sleep and relaxation videos to TikTok using TikTok's official Content Posting API. Connect your TikTok account to authorize automated publishing to your profile.</p>
     <ul class="scope-list">
       <li>Read basic profile info (<code>user.info.basic</code>)</li>
-      <li>Upload video drafts to your account (<code>video.upload</code>)</li>
       <li>Publish videos on your behalf via Direct Post (<code>video.publish</code>)</li>
     </ul>
     <button class="btn-tiktok" id="connectBtn">Connect with TikTok</button>
@@ -83,9 +82,9 @@
   </div>
 
   <script>
-    const CLIENT_KEY = "awzo7866nujwhry5";
+    const CLIENT_KEY = "sbaweabsrxuxpbp3le";
     const REDIRECT_URI = "https://deepdeltasleep.com/connect/callback/";
-    const SCOPES = "user.info.basic,video.upload,video.publish";
+    const SCOPES = "user.info.basic,video.publish";
 
     function randomState(len) {
       const arr = new Uint8Array(len);

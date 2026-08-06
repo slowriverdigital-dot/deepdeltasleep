@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post to TikTok — Deep Delta Sleep</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+  <link rel="shortcut icon" href="../../assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest: #1a2e1a; --forest-mid: #2d4a2d; --moss: #4a7c4a; --sage: #7aad7a;
+      --cream: #f5f0e8; --warm-white: #faf8f4; --gold: #c8a96e; --rust: #b5533c;
+      --text-dark: #1a2419; --text-mid: #3d5c3d; --text-light: #6b8f6b;
+    }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--warm-white);
+      color: var(--text-dark);
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem 4rem;
+      display: flex;
+      justify-content: center;
+    }
+    .wrap { max-width: 560px; width: 100%; }
+    .logo-row { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 2rem; }
+    .logo-row img { width: 36px; height: 36px; border-radius: 8px; }
+    .logo-row span { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--forest); }
+    .card {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 2.25rem 2rem;
+      border-top: 4px solid var(--sage);
+      margin-bottom: 1.5rem;
+    }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--forest); margin-bottom: 0.75rem; text-align: center; }
+    .sub { color: var(--text-mid); font-size: 0.9rem; text-align: center; margin-bottom: 1.75rem; }
+
+    /* creator info row */
+    .creator-row { display: flex; align-items: center; gap: 0.85rem; background: var(--warm-white); border-radius: 8px; padding: 0.85rem 1.1rem; margin-bottom: 1.75rem; }
+    .creator-row img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: var(--sage); }
+    .creator-row .meta { flex: 1; }
+    .creator-row .meta .label { font-size: 0.72rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.04em; }
+    .creator-row .meta .name { font-size: 0.95rem; font-weight: 500; color: var(--forest); }
+
+    video.preview { width: 100%; max-height: 420px; border-radius: 10px; background: #000; display: block; margin-bottom: 1.5rem; }
+
+    label.field-label { display: block; font-size: 0.82rem; font-weight: 500; color: var(--forest-mid); margin-bottom: 0.4rem; margin-top: 1.25rem; }
+    input[type="text"], select {
+      width: 100%; padding: 0.7rem 0.9rem; border: 1px solid #d8d0c0; border-radius: 6px;
+      font-family: inherit; font-size: 0.9rem; background: #fff; color: var(--text-dark);
+    }
+    select:invalid, select.placeholder-selected { color: var(--text-light); }
+    .hint { font-size: 0.78rem; color: var(--text-light); margin-top: 0.35rem; }
+
+    .checkbox-row { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.85rem; }
+    .checkbox-row input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--moss); cursor: pointer; }
+    .checkbox-row input[type="checkbox"]:disabled { cursor: not-allowed; }
+    .checkbox-row label { font-size: 0.88rem; color: var(--text-mid); cursor: pointer; }
+    .checkbox-row.disabled label { color: var(--text-light); cursor: not-allowed; }
+    .checkbox-row .badge { font-size: 0.72rem; color: var(--rust); margin-left: 0.3rem; }
+
+    .divider { height: 1px; background: #e2dccb; margin: 1.75rem 0 1.25rem; }
+
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .toggle-row .toggle-label { font-size: 0.88rem; font-weight: 500; color: var(--forest-mid); }
+    .switch { position: relative; width: 42px; height: 24px; flex-shrink: 0; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; inset: 0; background: #d8d0c0; border-radius: 24px; transition: 0.2s; }
+    .slider::before { content: ""; position: absolute; height: 18px; width: 18px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.2s; }
+    input:checked + .slider { background: var(--moss); }
+    input:checked + .slider::before { transform: translateX(18px); }
+
+    .commercial-panel { margin-top: 1rem; padding: 1rem 1.1rem; background: var(--warm-white); border-radius: 8px; display: none; }
+    .commercial-panel.open { display: block; }
+    .commercial-panel .prompt { font-size: 0.78rem; color: var(--rust); margin-top: 0.5rem; }
+
+    .consent-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid #e2dccb; }
+    .consent-row input[type="checkbox"] { width: 17px; height: 17px; margin-top: 2px; accent-color: var(--moss); cursor: pointer; }
+    .consent-row .declaration { font-size: 0.85rem; color: var(--text-mid); }
+    .consent-row .declaration strong { color: var(--forest); }
+
+    .publish-btn {
+      width: 100%; margin-top: 1.5rem; padding: 0.9rem; background: var(--forest); color: var(--cream);
+      font-weight: 500; font-size: 0.95rem; border-radius: 6px; border: none; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .publish-btn:disabled { background: #b9b3a2; cursor: not-allowed; }
+    .publish-btn:not(:disabled):hover { background: var(--forest-mid); }
+
+    .status-panel { display: none; margin-top: 1.5rem; padding: 1.1rem 1.25rem; border-radius: 8px; font-size: 0.88rem; }
+    .status-panel.show { display: block; }
+    .status-panel.info { background: #eef4ec; color: var(--forest-mid); border: 1px solid var(--sage); }
+    .status-panel.success { background: #eef4ec; color: var(--forest); border: 1px solid var(--moss); }
+    .status-panel.error { background: #f8ece7; color: var(--rust); border: 1px solid var(--rust); }
+    .status-panel .spinner { display: inline-block; width: 13px; height: 13px; border: 2px solid var(--sage); border-top-color: transparent; border-radius: 50%; margin-right: 0.5rem; animation: spin 0.8s linear infinite; vertical-align: -2px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .gate-panel { text-align: center; padding: 1rem 0; }
+    .gate-panel a { display: inline-block; margin-top: 1rem; padding: 0.75rem 1.75rem; background: var(--forest); color: var(--cream); border-radius: 6px; text-decoration: none; font-size: 0.9rem; }
+    .back-link { display: block; text-align: center; margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-light); text-decoration: none; }
+    .back-link:hover { color: var(--forest); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo-row">
+      <img src="../../assets/brand-icon-512.png" alt="Deep Delta Sleep logo" />
+      <span>Deep Delta Sleep</span>
+    </div>
+
+    <div class="card" id="gateCard" style="display:none;">
+      <div class="gate-panel">
+        <h1>Not connected</h1>
+        <p class="sub">Connect your TikTok account before posting.</p>
+        <a href="../">Connect with TikTok</a>
+      </div>
+    </div>
+
+    <div class="card" id="composerCard" style="display:none;">
+      <h1>Post to TikTok</h1>
+      <p class="sub">Review the details below, then publish this video with TikTok's Content Posting API.</p>
+
+      <div class="creator-row">
+        <img id="creatorAvatar" src="" alt="" />
+        <div class="meta">
+          <div class="label">Posting to</div>
+          <div class="name" id="creatorName">Loading…</div>
+        </div>
+      </div>
+
+      <video class="preview" id="videoPreview" src="./demo-clip.mp4" controls playsinline></video>
+
+      <label class="field-label" for="titleInput">Title</label>
+      <input type="text" id="titleInput" maxlength="150" />
+      <div class="hint">Editable. Shown as the caption on your TikTok post.</div>
+
+      <label class="field-label" for="privacySelect">Who can view this post</label>
+      <select id="privacySelect">
+        <option value="" disabled selected>Select privacy status</option>
+      </select>
+      <div class="hint" id="privacyHint"></div>
+
+      <label class="field-label">Allow others to</label>
+      <div class="checkbox-row" id="commentRow">
+        <input type="checkbox" id="allowComment" />
+        <label for="allowComment">Comment on this video</label>
+      </div>
+      <div class="checkbox-row" id="duetRow">
+        <input type="checkbox" id="allowDuet" />
+        <label for="allowDuet">Duet with this video</label>
+      </div>
+      <div class="checkbox-row" id="stitchRow">
+        <input type="checkbox" id="allowStitch" />
+        <label for="allowStitch">Stitch this video</label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="toggle-row">
+        <span class="toggle-label">Disclose commercial content</span>
+        <label class="switch">
+          <input type="checkbox" id="commercialToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="commercial-panel" id="commercialPanel">
+        <div class="checkbox-row">
+          <input type="checkbox" id="brandOrganic" />
+          <label for="brandOrganic">Your brand — promoting yourself or your own business</label>
+        </div>
+        <div class="prompt" id="brandOrganicPrompt" style="display:none;">Your video will be labeled as "Promotional content".</div>
+        <div class="checkbox-row" id="brandContentRow">
+          <input type="checkbox" id="brandContent" />
+          <label for="brandContent">Branded content — promoting another brand or a third party</label>
+        </div>
+        <div class="prompt" id="brandContentPrompt" style="display:none;">Your video will be labeled as "Paid partnership".</div>
+        <div class="prompt" id="commercialErrorPrompt" style="display:none;">You need to indicate if your content promotes yourself, a third party, or both.</div>
+        <div class="prompt" id="brandedPrivatePrompt" style="display:none;">Branded content visibility cannot be set to private.</div>
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" id="consentCheck" />
+        <label for="consentCheck" class="declaration" id="declarationText">
+          By posting, you agree to TikTok's <strong>Music Usage Confirmation</strong>.
+        </label>
+      </div>
+
+      <button class="publish-btn" id="publishBtn" disabled>Select a privacy setting to continue</button>
+
+      <div class="status-panel" id="statusPanel"></div>
+    </div>
+
+    <a href="../../index.html" class="back-link">← Back to Deep Delta Sleep</a>
+  </div>
+
+  <script>
+    const el = (id) => document.getElementById(id);
+    const gateCard = el("gateCard");
+    const composerCard = el("composerCard");
+    const publishBtn = el("publishBtn");
+    const statusPanel = el("statusPanel");
+    const privacySelect = el("privacySelect");
+
+    let creatorInfo = null;
+
+    function setStatus(kind, html) {
+      statusPanel.className = "status-panel show " + kind;
+      statusPanel.innerHTML = html;
+    }
+
+    function clearStatus() {
+      statusPanel.className = "status-panel";
+      statusPanel.innerHTML = "";
+    }
+
+    const PRIVACY_LABELS = {
+      PUBLIC_TO_EVERYONE: "Everyone (public)",
+      MUTUAL_FOLLOW_FRIENDS: "Friends (mutual followers)",
+      SELF_ONLY: "Only me (private)",
+      FOLLOWER_OF_CREATOR: "Followers",
+    };
+
+    async function loadCreatorInfo() {
+      let resp;
+      try {
+        resp = await fetch("/connect/api/creator-info", { credentials: "same-origin" });
+      } catch (e) {
+        gateCard.style.display = "block";
+        return;
+      }
+      if (resp.status === 401) {
+        gateCard.style.display = "block";
+        return;
+      }
+      if (!resp.ok) {
+        gateCard.style.display = "block";
+        gateCard.querySelector("h1").textContent = "Could not load account";
+        gateCard.querySelector(".sub").textContent = "There was a problem reaching TikTok. Please try connecting again.";
+        return;
+      }
+      creatorInfo = await resp.json();
+      composerCard.style.display = "block";
+
+      el("creatorName").textContent = "@" + (creatorInfo.creator_username || creatorInfo.creator_nickname || "your account");
+      if (creatorInfo.creator_avatar_url) {
+        el("creatorAvatar").src = creatorInfo.creator_avatar_url;
+      }
+      el("titleInput").value = "Deep Delta Sleep — calming rain & forest ambience for deep sleep 🌧️🌲 #sleep #relax #ambience";
+
+      // Privacy dropdown: options must follow privacy_level_options from
+      // creator_info, and there must be NO default value selected.
+      const options = creatorInfo.privacy_level_options || [];
+      options.forEach((val) => {
+        const opt = document.createElement("option");
+        opt.value = val;
+        opt.textContent = PRIVACY_LABELS[val] || val;
+        privacySelect.appendChild(opt);
+      });
+
+      // Interaction checkboxes: grey out + disable any interaction the
+      // creator's own TikTok app settings have disabled. None checked by default.
+      if (creatorInfo.comment_disabled) {
+        el("allowComment").disabled = true;
+        el("commentRow").classList.add("disabled");
+      }
+      if (creatorInfo.duet_disabled) {
+        el("allowDuet").disabled = true;
+        el("duetRow").classList.add("disabled");
+      }
+      if (creatorInfo.stitch_disabled) {
+        el("allowStitch").disabled = true;
+        el("stitchRow").classList.add("disabled");
+      }
+
+      // Video duration check against max_video_post_duration_sec.
+      const videoEl = el("videoPreview");
+      videoEl.addEventListener("loadedmetadata", () => {
+        const max = creatorInfo.max_video_post_duration_sec;
+        if (max && videoEl.duration > max) {
+          el("privacyHint").textContent =
+            `This video is ${Math.round(videoEl.duration)}s, which exceeds this account's ${max}s limit for a post.`;
+          el("privacyHint").style.color = "var(--rust)";
+          publishBtn.disabled = true;
+        }
+      });
+
+      refreshDeclaration();
+      refreshPublishState();
+    }
+
+    function refreshDeclaration() {
+      const commercialOn = el("commercialToggle").checked;
+      const organic = el("brandOrganic").checked;
+      const branded = el("brandContent").checked;
+      let html;
+      if (commercialOn && branded) {
+        html = `By posting, you agree to TikTok's <strong>Branded Content Policy</strong> and <strong>Music Usage Confirmation</strong>.`;
+      } else {
+        html = `By posting, you agree to TikTok's <strong>Music Usage Confirmation</strong>.`;
+      }
+      el("declarationText").innerHTML = html.replace("By posting, you agree", '<span></span>By posting, you agree');
+      // Re-attach the checkbox's `for` label text (innerHTML replace above just resets content)
+      el("declarationText").innerHTML = html;
+    }
+
+    function refreshPublishState() {
+      const privacy = privacySelect.value;
+      const commercialOn = el("commercialToggle").checked;
+      const organic = el("brandOrganic").checked;
+      const branded = el("brandContent").checked;
+      const consent = el("consentCheck").checked;
+
+      // Branded content cannot be paired with a private (SELF_ONLY) post.
+      const brandContentRow = el("brandContentRow");
+      const brandContentCheckbox = el("brandContent");
+      if (privacy === "SELF_ONLY") {
+        brandContentCheckbox.disabled = true;
+        brandContentCheckbox.checked = false;
+        brandContentRow.classList.add("disabled");
+        brandContentCheckbox.title = "Branded content visibility cannot be set to private.";
+        el("brandedPrivatePrompt").style.display = commercialOn ? "block" : "none";
+      } else {
+        brandContentCheckbox.disabled = false;
+        brandContentRow.classList.remove("disabled");
+        brandContentCheckbox.removeAttribute("title");
+        el("brandedPrivatePrompt").style.display = "none";
+      }
+
+      let disabled = false;
+      let label = "Publish to TikTok";
+
+      if (!privacy) {
+        disabled = true;
+        label = "Select a privacy setting to continue";
+      } else if (commercialOn && !organic && !el("brandContent").checked) {
+        disabled = true;
+        label = "Select what this content promotes";
+        el("commercialErrorPrompt").style.display = "block";
+      } else if (!consent) {
+        disabled = true;
+        label = "Agree to the Music Usage Confirmation to continue";
+      } else {
+        el("commercialErrorPrompt").style.display = "none";
+      }
+
+      publishBtn.disabled = disabled;
+      publishBtn.textContent = label;
+    }
+
+    privacySelect.addEventListener("change", () => {
+      privacySelect.classList.remove("placeholder-selected");
+      refreshPublishState();
+    });
+
+    el("commercialToggle").addEventListener("change", (e) => {
+      el("commercialPanel").classList.toggle("open", e.target.checked);
+      if (!e.target.checked) {
+        el("brandOrganic").checked = false;
+        el("brandContent").checked = false;
+        el("brandOrganicPrompt").style.display = "none";
+        el("brandContentPrompt").style.display = "none";
+        el("commercialErrorPrompt").style.display = "none";
+      }
+      refreshDeclaration();
+      refreshPublishState();
+    });
+
+    el("brandOrganic").addEventListener("change", (e) => {
+      el("brandOrganicPrompt").style.display = e.target.checked ? "block" : "none";
+      refreshDeclaration();
+      refreshPublishState();
+    });
+
+    el("brandContent").addEventListener("change", (e) => {
+      el("brandContentPrompt").style.display = e.target.checked ? "block" : "none";
+      refreshDeclaration();
+      refreshPublishState();
+    });
+
+    el("consentCheck").addEventListener("change", refreshPublishState);
+
+    async function pollStatus(publishId, attempt = 0) {
+      if (attempt > 30) {
+        setStatus("info", `<span class="spinner"></span>Still processing on TikTok's side. This can take a few minutes — you can close this page; the post will finish processing in the background.`);
+        return;
+      }
+      let resp;
+      try {
+        resp = await fetch("/connect/api/publish/status?publish_id=" + encodeURIComponent(publishId), { credentials: "same-origin" });
+      } catch (e) {
+        setTimeout(() => pollStatus(publishId, attempt + 1), 3000);
+        return;
+      }
+      if (!resp.ok) {
+        setTimeout(() => pollStatus(publishId, attempt + 1), 3000);
+        return;
+      }
+      const data = await resp.json();
+      if (data.status === "PUBLISH_COMPLETE") {
+        setStatus("success", `✓ Your private post is confirmed on TikTok. It's visible only to you (Only me) since this app hasn't completed TikTok's audit yet.`);
+        return;
+      }
+      if (data.status === "FAILED") {
+        setStatus("error", `Publishing failed: ${data.fail_reason || "unknown error"}.`);
+        return;
+      }
+      setStatus("info", `<span class="spinner"></span>Processing on TikTok's side (status: ${data.status || "PROCESSING"})… it may take a few minutes to finish and appear on your profile.`);
+      setTimeout(() => pollStatus(publishId, attempt + 1), 3000);
+    }
+
+    publishBtn.addEventListener("click", async () => {
+      publishBtn.disabled = true;
+      publishBtn.textContent = "Publishing…";
+      setStatus("info", `<span class="spinner"></span>Uploading your video to TikTok…`);
+
+      const payload = {
+        title: el("titleInput").value,
+        privacy_level: privacySelect.value,
+        disable_comment: !el("allowComment").checked,
+        disable_duet: !el("allowDuet").checked,
+        disable_stitch: !el("allowStitch").checked,
+        brand_organic_toggle: el("commercialToggle").checked && el("brandOrganic").checked,
+        brand_content_toggle: el("commercialToggle").checked && el("brandContent").checked,
+      };
+
+      let resp;
+      try {
+        resp = await fetch("/connect/api/publish/init", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      } catch (e) {
+        setStatus("error", "Network error while starting the upload. Please try again.");
+        publishBtn.disabled = false;
+        publishBtn.textContent = "Publish to TikTok";
+        return;
+      }
+
+      const data = await resp.json();
+      if (!resp.ok || !data.publish_id) {
+        setStatus("error", "Upload failed: " + (data.error || "unknown error") + (data.detail ? " — " + JSON.stringify(data.detail) : ""));
+        publishBtn.disabled = false;
+        publishBtn.textContent = "Publish to TikTok";
+        return;
+      }
+
+      setStatus("info", `<span class="spinner"></span>Video uploaded. It may take a few minutes for TikTok to process and publish it — checking status…`);
+      pollStatus(data.publish_id);
+    });
+
+    loadCreatorInfo();
+  </script>
+</body>
+</html>
