@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    // TikTok OAuth forwarder: TikTok's registered redirect_uri for this app is the
+    // GitHub Pages default domain (slowriverdigital-dot.github.io/deepdeltasleep/),
+    // which GitHub 301-redirects here to deepdeltasleep.com, preserving the query
+    // string. If this load carries a TikTok auth `code`, forward it on to the
+    // Cloudflare Worker's callback handler at /connect/callback/ untouched.
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (params.has("code") && params.has("state")) {
+        window.location.replace("/connect/callback/" + window.location.search);
+      }
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Delta Sleep</title>
